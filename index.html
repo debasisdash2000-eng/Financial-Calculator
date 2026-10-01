@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Financial Calculators | Loan & SIP</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="calculator-container">
+    <header class="calc-header">
+      <h2>Financial Calculators</h2>
+      <div class="tab-buttons">
+        <button id="loanTabBtn" class="tab-btn active">Loan EMI Calculator</button>
+        <button id="sipTabBtn" class="tab-btn">SIP Calculator</button>
+      </div>
+    </header>
+
+    <!-- Loan EMI Calculator Section -->
+    <section id="loanCalculator" class="calc-section active">
+      <form id="loanForm" onsubmit="return false;">
+        <div class="input-group">
+          <label for="loanAmount">Loan Amount (₹)</label>
+          <input type="number" id="loanAmount" placeholder="e.g. 500000" min="1000" required />
+        </div>
+
+        <div class="input-group">
+          <label for="loanRate">Annual Interest Rate (%)</label>
+          <input type="number" id="loanRate" placeholder="e.g. 8.5" step="0.01" min="0.1" required />
+        </div>
+
+        <div class="input-group">
+          <label for="loanTenure">Tenure (Years)</label>
+          <input type="number" id="loanTenure" placeholder="e.g. 5" min="1" max="50" required />
+        </div>
+
+        <button type="button" class="btn" id="calculateLoanBtn">Calculate EMI</button>
+      </form>
+
+      <div class="results" id="loanResults">
+        <div class="result-card">
+          <span>Monthly EMI</span>
+          <strong id="monthlyEmi">₹0</strong>
+        </div>
+        <div class="result-card">
+          <span>Total Interest</span>
+          <strong id="totalInterest">₹0</strong>
+        </div>
+        <div class="result-card highlight">
+          <span>Total Amount Payable</span>
+          <strong id="totalPayment">₹0</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIP Calculator Section -->
+    <section id="sipCalculator" class="calc-section">
+      <form id="sipForm" onsubmit="return false;">
+        <div class="input-group">
+          <label for="sipInvestment">Monthly Investment (₹)</label>
+          <input type="number" id="sipInvestment" placeholder="e.g. 5000" min="100" required />
+        </div>
+
+        <div class="input-group">
+          <label for="sipReturnRate">Expected Return Rate (% p.a.)</label>
+          <input type="number" id="sipReturnRate" placeholder="e.g. 12" step="0.01" min="0.1" required />
+        </div>
+
+        <div class="input-group">
+          <label for="sipTenure">Investment Period (Years)</label>
+          <input type="number" id="sipTenure" placeholder="e.g. 10" min="1" max="50" required />
+        </div>
+
+        <button type="button" class="btn" id="calculateSipBtn">Calculate Returns</button>
+      </form>
+
+      <div class="results" id="sipResults">
+        <div class="result-card">
+          <span>Invested Amount</span>
+          <strong id="investedAmount">₹0</strong>
+        </div>
+        <div class="result-card">
+          <span>Estimated Returns</span>
+          <strong id="estimatedReturns">₹0</strong>
+        </div>
+        <div class="result-card highlight">
+          <span>Total Future Value</span>
+          <strong id="maturityValue">₹0</strong>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
